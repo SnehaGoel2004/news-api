@@ -41,6 +41,23 @@ module.exports = router;*/
 // routes/news.js
 
 
+
+router.post('/', async (req, res) => {
+  try {
+    const { title, description, url, publishedAt, source } = req.body;
+    const newsArticle = await News.findOneAndUpdate(
+      { url },
+      { title, description, publishedAt, source },
+      { upsert: true, new: true }
+    );
+    res.status(201).json(newsArticle);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+
+
 // POST route to save news
 router.post('/', async (req, res) => {
   try {
