@@ -13,8 +13,8 @@ const app = express();
 // ✅ Enable CORS for all requests
 app.use(cors({
     origin: "*",  // Allows all frontend domains (for testing)
-    methods: ["GET", "POST"],
-    allowedHeaders: ["Content-Type"],
+    methods: ["GET", "POST" , "PUT" , "DELETE"],
+    allowedHeaders: ["Content-Type","Authorization"],
 }));
 
 
@@ -26,7 +26,7 @@ app.use(express.json());
 
 
 // ✅ Example API Endpoint
-app.get("/api/News", (req, res) => {
+app.get("/api/news", (req, res) => {
     res.json({ message: "CORS is now enabled!" });
 });
 
