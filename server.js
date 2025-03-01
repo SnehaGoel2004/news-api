@@ -36,7 +36,7 @@ app.use('/api/subscribers', subscriberRoutes);
 // Fetch news every hour
 cron.schedule('0 * * * *', fetchAndSaveNews);
 
-const PORT = process.env.PORT || 3008;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 
