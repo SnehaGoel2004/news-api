@@ -26,7 +26,7 @@ app.use(express.json());
 
 
 // ✅ Example API Endpoint
-app.get("/api/news", (req, res) => {
+app.get("/api/News", (req, res) => {
     res.json({ message: "CORS is now enabled!" });
 });
 
@@ -36,7 +36,7 @@ app.use('/api/subscribers', subscriberRoutes);
 // Fetch news every hour
 cron.schedule('0 * * * *', fetchAndSaveNews);
 
-const PORT = process.env.PORT || 3007;
+const PORT = process.env.PORT || 3008;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 
